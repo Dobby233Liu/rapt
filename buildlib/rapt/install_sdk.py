@@ -84,9 +84,6 @@ def unpack_sdk(interface):
         interface.success(__("The Android SDK has already been unpacked."))
         return
 
-    if "RAPT_NO_TERMS" not in os.environ:
-        interface.terms("https://developer.android.com/studio/terms", __("Do you accept the Android SDK Terms and Conditions?"))
-
     if plat.windows:
         archive = "sdk-tools-windows-{}.zip".format(plat.sdk_version)
     elif plat.macintosh:
@@ -240,7 +237,7 @@ def install_sdk(interface):
 
     get_packages(interface)
 
-    generate_keys(interface)
+    #generate_keys(interface)
 
     set_property("sdk.dir", plat.sdk.replace("\\", "/"), replace=True)
 
